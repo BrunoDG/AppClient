@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">AppClient</string>
+    <string name="main_url">http://localhost:8080/</string>
+    <string name="load_pessoas_btn">Buscar pessoas</string>
+</resources>
