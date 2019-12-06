@@ -19,16 +19,30 @@ public class MainPresenter implements MainContract.MainUserActionListener, Pesso
 
     @Override
     public void refreshButtonClicked() {
+        view.showLoading();
+        view.hideButton();
         service.loadPessoas(this);
     }
 
     @Override
     public void onSuccess(List<Pessoa> pessoas) {
         view.refreshRecyclerView(pessoas);
+        view.hideLoading();
     }
 
     @Override
     public void onError(String error) {
         view.showMessage(error);
+        view.hideLoading();
     }
+
+    public void metodo(int x, int y) {
+        if (service.soma(x, y) > 10) {
+            service.ok();
+        } else {
+            service.notOk();
+        }
+    }
+
+
 }

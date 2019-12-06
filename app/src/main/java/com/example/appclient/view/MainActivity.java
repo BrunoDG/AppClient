@@ -8,7 +8,6 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.Constraints;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
@@ -69,11 +68,6 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
     @Override
     public void hideLoading() {
         progressBar.setVisibility(View.INVISIBLE);
-    }
-
-    @Override
-    public void showButton() {
-        button.setVisibility(View.VISIBLE);
     }
 
     @Override

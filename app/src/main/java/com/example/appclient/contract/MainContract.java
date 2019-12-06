@@ -14,7 +14,6 @@ public interface MainContract {
         void showMessage(String msg);
         void showLoading();
         void hideLoading();
-        void showButton();
         void hideButton();
         void refreshRecyclerView(List<Pessoa> pessoas);
     }

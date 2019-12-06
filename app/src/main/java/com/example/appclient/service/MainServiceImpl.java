@@ -25,6 +25,9 @@ public class MainServiceImpl implements MainService {
         repository = retrofit.create(MainRepository.class);
     }
 
+
+
+
     @Override
     public void loadPessoas(final PessoasLoadedCallback callback) {
         repository.getPessoas().enqueue(new Callback<List<Pessoa>>() {
@@ -46,5 +49,20 @@ public class MainServiceImpl implements MainService {
                 callback.onError(t.getMessage());
             }
         });
+    }
+
+    @Override
+    public void ok() {
+
+    }
+
+    @Override
+    public void notOk() {
+
+    }
+
+    @Override
+    public int soma(int x, int y) {
+        return  x + y;
     }
 }
