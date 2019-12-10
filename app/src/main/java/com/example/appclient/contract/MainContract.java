@@ -8,9 +8,11 @@ public interface MainContract {
 
     interface MainUserActionListener {
         void refreshButtonClicked();
+        void openDetailsActivity(String cpf);
     }
 
     interface MainView {
+        void showDetailsView(String cpf);
         void showMessage(String msg);
         void showLoading();
         void hideLoading();

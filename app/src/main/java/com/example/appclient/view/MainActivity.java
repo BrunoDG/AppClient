@@ -1,6 +1,7 @@
 package com.example.appclient.view;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -22,7 +23,7 @@ import com.example.appclient.view.adapter.MainRecyclerViewAdapter;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements MainContract.MainView, SwipeRefreshLayout.OnRefreshListener, View.OnClickListener {
+public class MainActivity extends AppCompatActivity implements MainContract.MainView, SwipeRefreshLayout.OnRefreshListener, View.OnClickListener, RecyclerClickListener {
 
     private RecyclerView listaPessoas;
     private MainRecyclerViewAdapter adapter;
@@ -45,7 +46,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
         progressBar = findViewById(R.id.progressBar);
         button = findViewById(R.id.load_btn);
 
-        adapter = new MainRecyclerViewAdapter();
+        adapter = new MainRecyclerViewAdapter(this);
         listaPessoas.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -53,6 +54,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
         refreshLayout.setOnRefreshListener(this);
         button.setOnClickListener(this);
+    }
+
+    @Override
+    public void showDetailsView(String cpf) {
+        Log.d(this.getLocalClassName(), "Abrindo detalhes de: "+cpf);
     }
 
     @Override
@@ -68,6 +74,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
     @Override
     public void hideLoading() {
         progressBar.setVisibility(View.INVISIBLE);
+        refreshLayout.setRefreshing(false);
     }
 
     @Override
@@ -88,5 +95,11 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
     @Override
     public void onClick(View v) {
         presenter.refreshButtonClicked();
+    }
+
+    @Override
+    public void onClick(View v, int position) {
+        String cpf = adapter.getPessoasDataSet().get(position).getCpf();
+        presenter.openDetailsActivity(cpf);
     }
 }

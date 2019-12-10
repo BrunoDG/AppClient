@@ -2,7 +2,7 @@ package com.example.appclient.service;
 
 import com.example.appclient.callback.PessoasLoadedCallback;
 import com.example.appclient.data.Pessoa;
-import com.example.appclient.repository.MainRepository;
+import com.example.appclient.repository.PessoasRepository;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainServiceImpl implements MainService {
 
-    private MainRepository repository;
+    private PessoasRepository repository;
 
     public MainServiceImpl(String url) {
         Retrofit retrofit = new Retrofit.Builder()
@@ -22,7 +22,7 @@ public class MainServiceImpl implements MainService {
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
-        repository = retrofit.create(MainRepository.class);
+        repository = retrofit.create(PessoasRepository.class);
     }
 
 

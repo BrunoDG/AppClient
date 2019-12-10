@@ -25,6 +25,11 @@ public class MainPresenter implements MainContract.MainUserActionListener, Pesso
     }
 
     @Override
+    public void openDetailsActivity(String cpf) {
+        view.showDetailsView(cpf);
+    }
+
+    @Override
     public void onSuccess(List<Pessoa> pessoas) {
         view.refreshRecyclerView(pessoas);
         view.hideLoading();
@@ -36,7 +41,7 @@ public class MainPresenter implements MainContract.MainUserActionListener, Pesso
         view.hideLoading();
     }
 
-    public void metodo(int x, int y) {
+    void metodo(int x, int y) {
         if (service.soma(x, y) > 10) {
             service.ok();
         } else {
