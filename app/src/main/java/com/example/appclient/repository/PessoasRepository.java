@@ -6,11 +6,12 @@ import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 public interface PessoasRepository {
     @GET("pessoas")
     Call<List<Pessoa>> getPessoas();
 
     @GET("pessoa/{id}")
-    Call<Pessoa> getPessoa(String cpf);
+    Call<Pessoa> getPessoa(@Path("id") String cpf);
 }

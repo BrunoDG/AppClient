@@ -11,10 +11,10 @@ Estou aprendendo estas tecnologias no trabalho. Isto serve para que eu possa est
 ## TO-DO
 
 - [x] Criar lista com cards que retornam nome, sobrenome, cpf e idade
-
-- [ ] Fazer com que, ao clicar no button, eu retorne uma nova activity com detalhes da pessoa selecionada
-  - [ ] Criar novo método no `Repository` 
-  - [ ] Criar nova `Activity` para retornar as informações do usuário (chamaremos de `DetailsActivity`)
-  - [ ] Criar novo `Presenter` para a `Activity` (chamaremos de `DetailsPresenter`)
-  - [ ] Criar novo `Service` para a `Activity`  (chamaremos de `DetailsService`)
-  - [ ] Criar novo `Callback` para  a`Activity` (chamaremos de `DetailsActivityCallback`)
+- [x] Fazer com que, ao clicar no button, eu retorne uma nova activity com detalhes da pessoa selecionada
+  - [x] Criar novo método no `Repository` 
+  - [x] Criar nova `Activity` para retornar as informações do usuário (chamaremos de `DetailsActivity`)
+  - [x] Criar novo `Presenter` para a `Activity` (chamaremos de `DetailsPresenter`)
+  - [x] Criar novo `Service` para a `Activity`  (chamaremos de `DetailsService`)
+  - [x] Criar novo `Callback` para  a`Activity` (chamaremos de `DetailsActivityCallback`)
+- [ ] Retornar, da Activity de detalhes pra Activity principal, o state que a tela principal estava antes de entrar na tela de detalhes.

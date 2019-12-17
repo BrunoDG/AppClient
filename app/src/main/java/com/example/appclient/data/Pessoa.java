@@ -1,6 +1,8 @@
 package com.example.appclient.data;
 
-public class Pessoa {
+import java.io.Serializable;
+
+public class Pessoa implements Serializable {
 
     private String name;
     private String sobrenome;

@@ -9,13 +9,17 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.appclient.R;
-import com.example.appclient.callback.PessoaDetailCallback;
 import com.example.appclient.contract.DetailContract;
 import com.example.appclient.data.Pessoa;
 import com.example.appclient.presenter.DetailPresenter;
 import com.example.appclient.service.DetailServiceImpl;
 
 public class DetailsActivity extends AppCompatActivity implements DetailContract.DetailUserView {
+
+    private TextView detailName;
+    private TextView detailSurname;
+    private TextView detailCPF;
+    private TextView detailAge;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -30,19 +34,21 @@ public class DetailsActivity extends AppCompatActivity implements DetailContract
 
         // Load the "Pessoa" objects.
         presenter.loadDetails(cpf);
+
+        detailName = findViewById(R.id.detailName);
+        detailSurname = findViewById(R.id.detailSurname);
+        detailCPF = findViewById(R.id.detailCPF);
+        detailAge = findViewById(R.id.detailAge);
     }
 
     @Override
     public void showDetails(Pessoa pessoa) {
-        TextView detailName = findViewById(R.id.detailName);
-        TextView detailSurname = findViewById(R.id.detailSurname);
-        TextView detailCPF = findViewById(R.id.detailCPF);
-        TextView detailAge = findViewById(R.id.detailAge);
+        String age = String.valueOf(pessoa.getIdade());
 
         detailName.setText(pessoa.getName());
         detailSurname.setText(pessoa.getSobrenome());
         detailCPF.setText(pessoa.getCpf());
-        detailAge.setText(pessoa.getIdade());
+        detailAge.setText(age);
     }
 
     @Override

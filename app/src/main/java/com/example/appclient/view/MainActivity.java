@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
         button = findViewById(R.id.load_btn);
 
         adapter = new MainRecyclerViewAdapter(this);
+
         listaPessoas.setAdapter(adapter);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -57,6 +58,51 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
 
         refreshLayout.setOnRefreshListener(this);
         button.setOnClickListener(this);
+
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //...
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        //...
+    }
+
+    @Override
+    protected void onStop() {
+        ///...
+        super.onStop();
+    }
+
+    @Override
+    protected void onPause() {
+        //...
+        super.onPause();
+    }
+
+    @Override
+    protected void onDestroy() {
+        //...
+        super.onDestroy();
+    }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        //outState.putSerializable("lista", adapter.getPessoasDataSet());
+        //outState.get()
+
+        super.onSaveInstanceState(outState);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
     }
 
     @Override

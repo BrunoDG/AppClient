@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appclient.R;
+import com.example.appclient.data.MyList;
 import com.example.appclient.data.Pessoa;
 import com.example.appclient.view.RecyclerClickListener;
 
@@ -32,7 +33,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
 
     public MainRecyclerViewAdapter(RecyclerClickListener listener){
         this.listener = listener;
-        this.setPessoasDataSet(new ArrayList<Pessoa>());
+        this.setPessoasDataSet(new MyList<Pessoa>());
     }
 
     @NonNull
