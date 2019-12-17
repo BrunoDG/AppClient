@@ -10,4 +10,7 @@ import retrofit2.http.GET;
 public interface PessoasRepository {
     @GET("pessoas")
     Call<List<Pessoa>> getPessoas();
+
+    @GET("pessoa/{id}")
+    Call<Pessoa> getPessoa(String cpf);
 }

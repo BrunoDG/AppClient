@@ -25,9 +25,6 @@ public class MainServiceImpl implements MainService {
         repository = retrofit.create(PessoasRepository.class);
     }
 
-
-
-
     @Override
     public void loadPessoas(final PessoasLoadedCallback callback) {
         repository.getPessoas().enqueue(new Callback<List<Pessoa>>() {

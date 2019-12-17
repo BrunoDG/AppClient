@@ -1,5 +1,6 @@
 package com.example.appclient.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -31,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
     private ProgressBar progressBar;
     private Button button;
 
+    public static final String ID_CPF = "";
+
     private MainPresenter presenter;
 
     @Override
@@ -59,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements MainContract.Main
     @Override
     public void showDetailsView(String cpf) {
         Log.d(this.getLocalClassName(), "Abrindo detalhes de: "+cpf);
+        Intent intent = new Intent(this, DetailsActivity.class);
+        intent.putExtra(ID_CPF, cpf);
+        startActivity(intent);
     }
 
     @Override
