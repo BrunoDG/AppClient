@@ -25,7 +25,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailContract
         Intent intent = getIntent();
         String cpf = intent.getStringExtra(MainActivity.ID_CPF);
 
-        DetailServiceImpl service = new DetailServiceImpl("http://localhost:8080/");
+        DetailServiceImpl service = new DetailServiceImpl(getString(R.string.main_url));
         DetailPresenter presenter = new DetailPresenter(this, service);
 
         // Load the "Pessoa" objects.
