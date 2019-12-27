@@ -1,8 +1,9 @@
 package com.example.appclient.data;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
-public class Pessoa implements Serializable {
+public class Pessoa implements Parcelable {
 
     private String name;
     private String sobrenome;
@@ -40,4 +41,39 @@ public class Pessoa implements Serializable {
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }
+
+    @Override
+    public int describeContents() {
+        return hashCode();
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(name);
+        dest.writeString(sobrenome);
+        dest.writeInt(idade);
+        dest.writeString(cpf);
+    }
+
+    public Pessoa (Parcel p){
+        name = p.readString();
+        sobrenome = p.readString();
+        idade = p.readInt();
+        cpf = p.readString();
+    }
+
+    public Pessoa () {}
+
+    public static final Parcelable.Creator<Pessoa> PESSOA_CREATOR = new Parcelable.Creator<Pessoa>() {
+
+        @Override
+        public Pessoa createFromParcel(Parcel src) {
+            return new Pessoa(src);
+        }
+
+        @Override
+        public Pessoa[] newArray(int size) {
+            return new Pessoa[size];
+        }
+    };
 }

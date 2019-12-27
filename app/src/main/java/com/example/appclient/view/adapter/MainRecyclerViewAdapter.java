@@ -1,5 +1,6 @@
 package com.example.appclient.view.adapter;
 
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,11 +11,9 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.appclient.R;
-import com.example.appclient.data.MyList;
 import com.example.appclient.data.Pessoa;
 import com.example.appclient.view.RecyclerClickListener;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerViewAdapter.ViewHolder> {
@@ -33,7 +32,7 @@ public class MainRecyclerViewAdapter extends RecyclerView.Adapter<MainRecyclerVi
 
     public MainRecyclerViewAdapter(RecyclerClickListener listener){
         this.listener = listener;
-        this.setPessoasDataSet(new MyList<Pessoa>());
+        this.setPessoasDataSet(pessoasDataSet);
     }
 
     @NonNull
