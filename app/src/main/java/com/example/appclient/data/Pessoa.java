@@ -55,16 +55,7 @@ public class Pessoa implements Parcelable {
         dest.writeString(cpf);
     }
 
-    public Pessoa (Parcel p){
-        name = p.readString();
-        sobrenome = p.readString();
-        idade = p.readInt();
-        cpf = p.readString();
-    }
-
-    public Pessoa () {}
-
-    public static final Parcelable.Creator<Pessoa> PESSOA_CREATOR = new Parcelable.Creator<Pessoa>() {
+    public static final Parcelable.Creator<Pessoa> CREATOR = new Parcelable.Creator<Pessoa>() {
 
         @Override
         public Pessoa createFromParcel(Parcel src) {
@@ -76,4 +67,14 @@ public class Pessoa implements Parcelable {
             return new Pessoa[size];
         }
     };
+
+    public Pessoa (Parcel p){
+        name = p.readString();
+        sobrenome = p.readString();
+        idade = p.readInt();
+        cpf = p.readString();
+    }
+
+    public Pessoa () {}
+
 }
